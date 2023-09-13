@@ -16,8 +16,8 @@ export default function intial_screen() {
           height="100"
           source={require( './../ellipse-1.svg' )}
         />  */}
-        <View style={styles.yourCentralHubFor}>
-          <Text>Your Central Hub For your Central Hub For Coordinating Disaster Relief Efforts</Text>
+        <View style={styles.yourCentralHubFor} >
+          <Text style={styles.title_text}>Your Central Hub For your Central Hub For Coordinating Disaster Relief Efforts</Text>
         </View>
         <View style={styles.group}>
           <View style={styles.ellipse2} />
@@ -70,7 +70,7 @@ const styles = {
     width: 231,
   },
   yourCentralHubFor: {
-    left: 52,
+    left: 10,
     position: 'absolute',
     overflow: 'hidden',
     top: 576,
@@ -124,6 +124,13 @@ const styles = {
     height: 60,
     position: 'relative',
     width: 200,
+  },
+  title_text: {
+    fontSize: 24, // Adjust the font size as needed
+    fontWeight: 'bold', // Make the text bold
+    textAlign: 'center', // Center-align the text
+    marginHorizontal: 20, // Add horizontal margin for better readability
+    color: '#333', // Set your desired text color
   },
   textWrapper2: {
     color: '#ffffff',
