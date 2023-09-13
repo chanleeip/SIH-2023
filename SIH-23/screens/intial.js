@@ -6,18 +6,18 @@ export default function intial_screen() {
   return (
     <View style={styles.mainFrame}>
       <View style={styles.View}>
-        {/* <Image
+       <Image
           style={styles.ellipse}
-          source={{ uri: 'https://c.animaapp.com/HsvmEtiB/img/ellipse-1.svg' }}
+          source={require( './../assets/ellipse-1.jpg' )}
           // You can also use a local image if needed: require('./path/to/local/image.png')
-        /> */}
-        <SvgUri
+        />
+        {/* <SvgUri
           width="100" 
           height="100"
-          source={{ uri: 'https://c.animaapp.com/HsvmEtiB/img/ellipse-1.svg' }}
-        />
+          source={require( './../ellipse-1.svg' )}
+        />  */}
         <View style={styles.yourCentralHubFor}>
-          <Text>YourCentralHubFor</Text>
+          <Text>Your Central Hub For your Central Hub For Coordinating Disaster Relief Efforts</Text>
         </View>
         <View style={styles.group}>
           <View style={styles.ellipse2} />
@@ -72,6 +72,7 @@ const styles = {
   yourCentralHubFor: {
     left: 52,
     position: 'absolute',
+    overflow: 'hidden',
     top: 576,
   },
   group: {
