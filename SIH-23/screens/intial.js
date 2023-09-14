@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, Image } from 'react-native';
 import { SvgUri } from 'react-native-svg';
 
-export default function intial_screen() {
+export default function Intial_screen() {
   return (
     <View style={styles.mainFrame}>
       <View style={styles.View}>
