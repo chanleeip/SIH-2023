@@ -11,10 +11,10 @@ const Register = () => {
             <View style={styles.overlapGroup}>
               <Image
                 style={styles.company}
-                source={{
-                  uri:
-                    'https://c.animaapp.com/tKYbPmqq/img/company-1@2x.png',
-                }}
+                source={
+                  require(
+                    '../assets/company-registeration.png')
+                }
               />
             </View>
           </View>
@@ -28,10 +28,8 @@ const Register = () => {
         <View style={styles.overlapGroup2}>
           <Image
             style={styles.tie}
-            source={{
-              uri:
-                'https://c.animaapp.com/tKYbPmqq/img/tie-1@2x.png',
-            }}
+            source={require('../assets/tie-registeration.png')
+            }
           />
           <View style={styles.group2}>
             <View style={styles.overlapGroup3}>
@@ -47,18 +45,9 @@ const Register = () => {
               <View style={styles.overlapGroup3}>
                 <View style={styles.rectangle4} />
                 <Image
-                  style={styles.img}
-                  source={{
-                    uri:
-                      'https://c.animaapp.com/tKYbPmqq/img/ellipse-2-1.svg',
-                  }}
-                />
-                <Image
                   style={styles.password}
-                  source={{
-                    uri:
-                      'https://c.animaapp.com/tKYbPmqq/img/password-1@2x.png',
-                  }}
+                  source={require('../assets/password-registeration.png')
+                   }
                 />
               </View>
             </View>
@@ -82,10 +71,7 @@ const Register = () => {
             </View>
             <Image
               style={styles.user}
-              source={{
-                uri:
-                  'https://c.animaapp.com/tKYbPmqq/img/user-1@2x.png',
-              }}
+              source={require('../assets/user-registeration.png')}
             />
           </View>
         </View>
@@ -105,10 +91,7 @@ const Register = () => {
               </View>
               <Image
                 style={styles.addUserMale}
-                source={{
-                  uri:
-                    'https://c.animaapp.com/tKYbPmqq/img/add-user-male-1@2x.png',
-                }}
+                source={require('../assets/add-user-registeration.png')}
               />
             </View>
           </View>
@@ -119,20 +102,6 @@ const Register = () => {
             <View style={styles.group13}>
               <Text style={styles.textWrapper7}>Already a user..?</Text>
             </View>
-            <Image
-              style={styles.line}
-              source={{
-                uri:
-                  'https://c.animaapp.com/tKYbPmqq/img/line-1-1.svg',
-              }}
-            />
-            <Image
-              style={styles.line2}
-              source={{
-                uri:
-                  'https://c.animaapp.com/tKYbPmqq/img/line-2-1.svg',
-              }}
-            />
           </View>
         </View>
 
@@ -146,10 +115,7 @@ const Register = () => {
             </View>
             <Image
               style={styles.login}
-              source={{
-                uri:
-                  'https://c.animaapp.com/tKYbPmqq/img/login-1@2x.png',
-              }}
+              source={require('../assets/login-registeration.png')}
             />
           </View>
         </View>
