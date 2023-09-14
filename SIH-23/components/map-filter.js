@@ -11,11 +11,11 @@ const styles=StyleSheet.create({
         borderColor: '#00203f',
         borderRadius: 20,
         height: 29,
-        left: 102,
+        left: 10,
         overflow: 'hidden',
-        position: 'absolute',
-        top: 110,
+        top: 60,
         width: 92,
+        marginHorizontal: 5
       },
       textWrapper6: {
         color: '#000000',

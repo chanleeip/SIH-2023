@@ -1,22 +1,22 @@
 import{Text,View,StyleSheet,Image} from 'react-native'
 
-const Alert_post=({heading,content,custom_style})=>{return(
+const Alert_post=({heading,content,custom_style,path})=>{return(
     <View style={[styles.iphone,custom_style]}>
       <View style={styles.overlapGroupWrapper}>
         <View style={styles.overlapGroup}>
           <View style={styles.card}>
             <Text style={styles.textWrapper}>{heading}</Text>
             <Text style={styles.div}>{content}</Text>
-            <Image style={styles.ellipse} alt="Ellipse" source={{uri:"https://c.animaapp.com/VRoiScPa/img/ellipse-12.svg"}} />
+            <Image style={styles.ellipse} alt="Ellipse" source={path} />
           </View>
           <View style={styles.frame}>
             <Text style={styles.textWrapper2}>Contact</Text>
-            <Image style={styles.group} alt="Group" source={{uri:"https://c.animaapp.com/VRoiScPa/img/group-42@2x.png"}} />
+            <Image style={styles.group} alt="Group" source={require('../assets/contact-alerts.png')} />
           </View>
           <View style={styles.frameWrapper}>
             <View style={styles.frame2}>
               <Text style={styles.textWrapper3}>Report</Text>
-              <Image style={styles.vector} alt="Vector" source={{uri:"https://c.animaapp.com/VRoiScPa/img/vector.svg" }}/>
+              <Image style={styles.vector} alt="Vector" source={require('../assets/vector.png')}/>
             </View>
           </View>
         </View>
