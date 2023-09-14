@@ -11,7 +11,7 @@ const AppNavigator = createStackNavigator(
   {
     // Home: App, // Your existing App component
     // Intial_screen: intial_screen, 
-    Register_screen:login// Your new screen component
+    Register_screen:post_message// Your new screen component
   },
   {
     headerMode: 'none',
