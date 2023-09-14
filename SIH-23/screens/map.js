@@ -2,14 +2,11 @@ import { View,Text,StyleSheet,Image } from "react-native";
 import Bottom_bar from "../components/botton-bar";
 import Map_filter from "../components/map-filter";
 import Search_bar from "../components/search-bar";
+import Side_bar_fore from "../components/side_bar_fore";
 const Map=()=>{return(
     <View style={styles.homeScreen}>
       <View style={styles.overlap3}>
-      <Image
-      style={styles.sidebarCollapsedInstance}
-      alt="Sidebar collapsed"
-      source={require('../assets/side-bar-map.png')}
-    />
+      <Side_bar_fore />
         <Search_bar text="Search   Places"/>
         <Map_filter text="  State" style={{left: 102}}/>
         <Map_filter text="Nearby" style={{left: 199}}/>
