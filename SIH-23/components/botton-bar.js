@@ -1,7 +1,7 @@
 import { View, Text, Image,StyleSheet} from 'react-native';
 import PropTypes from 'prop-types';
 
-const bottom_bar = ()=>{
+const Bottom_bar = ()=>{
             return (
               <View style={styles.bottomBar}>
                 <View style={styles.mapNavigation}>
@@ -188,4 +188,4 @@ const bottom_bar = ()=>{
         top: 30,
       },})
 
-export default bottom_bar
+export default Bottom_bar

@@ -6,14 +6,15 @@ import login from './screens/login';
 import side_bar from './components/sidebar'
 import bottom_bar from './components/botton-bar';
 import post_message from './screens/post-message';
-import map_sidebar from './components/map-sidebar';
+import Map from './screens/map';
+import map_sidebar from './components/map-disaster_type';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 const AppNavigator = createStackNavigator(
   {
     // Home: App, // Your existing App component
     // Intial_screen: intial_screen, 
-    Register_screen:map_sidebar// Your new screen component
+    Register_screen:Map// Your new screen component
   },
   {
     headerMode: 'none',
