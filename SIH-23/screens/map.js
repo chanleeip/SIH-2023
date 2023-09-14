@@ -8,11 +8,13 @@ const Map=()=>{return(
       <View style={styles.overlap3}>
       <Side_bar_fore />
         <Search_bar text="Search   Places"/>
-        <Map_filter text="  State" style={{left: 102}}/>
-        <Map_filter text="Nearby" style={{left: 199}}/>
-        <Map_filter text="Types" style={{left: 295}}/>
-        <Map_filter text="Duration" style={{left: 5}}/>
-        <Bottom_bar/>
+        <View style={{flexDirection:'row'}}>
+        <Map_filter text="  State" />
+        <Map_filter text="Nearby" />
+        <Map_filter text="Types" />
+        <Map_filter text="Duration" />
+        </View>
+        <Bottom_bar custom_style={{bottom:-675}}/>
       </View>
     </View>
 )}

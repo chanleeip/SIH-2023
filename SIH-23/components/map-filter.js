@@ -15,7 +15,7 @@ const styles=StyleSheet.create({
         overflow: 'hidden',
         top: 60,
         width: 92,
-        marginHorizontal: 5
+        marginHorizontal: 1
       },
       textWrapper6: {
         color: '#000000',
