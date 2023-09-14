@@ -1,9 +1,9 @@
 import { View, Text, Image,StyleSheet} from 'react-native';
 import PropTypes from 'prop-types';
 
-const Bottom_bar = ()=>{
+const Bottom_bar = ({custom_style})=>{
             return (
-              <View style={styles.bottomBar}>
+              <View style={[styles.bottomBar,custom_style]}>
                 <View style={styles.mapNavigation}>
                   <View style={styles.overlapGroup}>
                     <Image style={styles.mapIcon} alt="Map icon" source={require('../assets/map-bottom-bar.png')} />
