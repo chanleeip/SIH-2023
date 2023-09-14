@@ -1,6 +1,7 @@
 import { View,Text,StyleSheet,Image } from "react-native";
 import Bottom_bar from "../components/botton-bar";
 import Map_filter from "../components/map-filter";
+import Search_bar from "../components/search-bar";
 const Map=()=>{return(
     <View style={styles.homeScreen}>
       <View style={styles.overlap3}>
@@ -9,10 +10,7 @@ const Map=()=>{return(
       alt="Sidebar collapsed"
       source={require('../assets/side-bar-map.png')}
     />
-        <View style={styles.searchBar}>
-          <Image style={styles.searchIcon} alt="Search icon" source={require('../assets/search-map.png')}/>
-          <Text style={styles.searchPlaces}>Search&nbsp;&nbsp; places</Text>
-        </View>
+        <Search_bar text="Search   Places"/>
         <Map_filter text="  State" style={{left: 102}}/>
         <Map_filter text="Nearby" style={{left: 199}}/>
         <Map_filter text="Types" style={{left: 295}}/>
