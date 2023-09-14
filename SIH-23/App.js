@@ -10,13 +10,15 @@ import Map from './screens/map';
 import map_sidebar from './components/map-disaster_type';
 import Alert_post from './components/alert-post';
 import Alerts from './screens/alerts';
+import Helpline_post from './components/helpline-post';
+import Helpline from './screens/helpline';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 const AppNavigator = createStackNavigator(
   {
     // Home: App, // Your existing App component
     // Intial_screen: intial_screen, 
-    Register_screen:Alerts// Your new screen component
+    Register_screen:Helpline// Your new screen component
   },
   {
     headerMode: 'none',

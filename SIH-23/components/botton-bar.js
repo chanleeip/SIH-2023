@@ -41,7 +41,6 @@ const Bottom_bar = ({custom_style})=>{
         borderTopRightRadius: 20,
         height: 71,
         overflow: 'hidden',
-        position: 'absolute',
         bottom: 0,
         width: 390,
 
