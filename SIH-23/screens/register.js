@@ -196,8 +196,8 @@ const styles = StyleSheet.create({
     width: 66,
   },
   overlapGroup: {
-    backgroundColor: '#e0e0e0',
-    borderRadius: 34.1,
+    // backgroundColor: '#e0e0e0',
+    // borderRadius: 34.1,
     height: 70,
     left: -2,
     position: 'relative',
@@ -246,23 +246,25 @@ const styles = StyleSheet.create({
     left: 13,
     position: 'absolute',
     top: 260,
-    width: 290,
+    width: 333,
 },
   overlapGroup2: {
     height: 19,
-    position: 'relative',
+    position: 'absolute',
     width: 111,
   },
   tie: {
-    backgroundColor: '#e0e0e0',
-  borderWidth: 2,
+    // backgroundColor: '#e0e0e0',
+  // borderWidth: 2,
   borderColor: '#000', // Use the desired border color
   borderRadius: 34.38, // React Native does not support specifying separate radii for width and height
-  height: 65,
-  left: 300,
+  height: 40,
+  left: 310,
   position: 'absolute',
-  top: 350,
-  width: 68,
+  top: 363,
+  width: 60,
+  zIndex: 1, // For iOS
+  elevation: 1 
   },
   group2: {
     height: 19,
@@ -292,6 +294,9 @@ const styles = StyleSheet.create({
     top: 250,
     whiteSpace: 'nowrap',
     width: 111,
+    zIndex:1,
+    backgroundColor:'#ffffff',
+    elevation:1
   },
   group3: {
     height: 70,
@@ -400,11 +405,11 @@ const styles = StyleSheet.create({
     left: 0,
     position: 'absolute',
     top: 15,
-    width: 338,
+    width: 330,
   },
   ellipse2: {
-    backgroundColor: '#e0e0e0',
-    borderWidth: 2,
+    // backgroundColor: '#e0e0e0',
+    // borderWidth: 2,
     borderRadius: 33.81,
     height: 71,
     left: 273,
