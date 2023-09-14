@@ -31,7 +31,7 @@ const post_message = () => {
                   <Text style={styles.textWrapper7}>Submit</Text>
                 </View>
               </View>
-              <Image style={styles.login} alt="Login" source={{uri:"https://c.animaapp.com/0N9z4sNO/img/login@2x.png" }}/>
+              <Image style={styles.login} alt="Login" source={require('../assets/login-registeration.png')}/>
             </View>
           </View>
         </View>
