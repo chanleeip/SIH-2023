@@ -15,6 +15,7 @@ const styles=StyleSheet.create({
         overflow: 'hidden',
         top: 60,
         width: 92,
+        marginTop:2,
         marginHorizontal: 1
       },
       textWrapper6: {

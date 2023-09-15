@@ -18,7 +18,7 @@ const AppNavigator = createStackNavigator(
   {
     // Home: App, // Your existing App component
     // Intial_screen: intial_screen, 
-    Register_screen:Map// Your new screen component
+    Register_screen:Alerts// Your new screen component
   },
   {
     headerMode: 'none',

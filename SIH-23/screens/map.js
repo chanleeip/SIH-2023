@@ -1,10 +1,11 @@
-import { View,Text,StyleSheet,Image } from "react-native";
+import { View,Text,StyleSheet,Dimensions } from "react-native";
 import Bottom_bar from "../components/botton-bar";
 import Map_filter from "../components/map-filter";
 import Search_bar from "../components/search-bar";
 import Side_bar_fore from "../components/side_bar_fore";
+const { width, height } = Dimensions.get('window');
 const Map=()=>{return(
-    <View style={styles.homeScreen}>
+    <View style={[styles.homeScreen,{width,height}]}>
       <View style={styles.overlap3}>
       <Side_bar_fore />
         <Search_bar text="Search   Places"/>
@@ -14,6 +15,7 @@ const Map=()=>{return(
         <Map_filter text="Types" />
         <Map_filter text="Duration" />
         </View>
+        <View></View>
         <Bottom_bar custom_style={{bottom:-675}}/>
       </View>
     </View>

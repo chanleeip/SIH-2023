@@ -1,10 +1,11 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
-
+import { View, Text, Image, StyleSheet, TextInput,Dimensions } from 'react-native';
+const { width, height } = Dimensions.get('window');
 const Register = () => {
   return (
-    <View style={styles.container}>
-      <View style={styles.register}>
+    <View style={[{width,height}]}>
+    <View style={[styles.container]}>
+      <View style={[styles.register]}>
         <View style={styles.overlap}>
           <View style={styles.rectangle} />
           <View style={styles.group}>
@@ -22,6 +23,7 @@ const Register = () => {
             <View style={styles.divWrapper}>
               <Text style={styles.textWrapper}>Company name</Text>
             </View>
+              <TextInput style={{alignItems:'center',flexDirection:'row', justifyContent:'center', backgroundColor:"green"}} value='dghujg'/>
           </View>
         </View>
 
@@ -120,6 +122,7 @@ const Register = () => {
           </View>
         </View>
       </View>
+    </View>
     </View>
   );
 };

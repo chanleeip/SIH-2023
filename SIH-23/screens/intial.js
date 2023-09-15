@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, Text, Image } from 'react-native';
-import { SvgUri } from 'react-native-svg';
 
 export default function Intial_screen() {
   return (
