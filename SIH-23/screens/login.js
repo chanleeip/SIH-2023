@@ -1,7 +1,25 @@
-import React from 'react';
-import { View, Text, Image,StyleSheet} from 'react-native';
-
+import React, { useEffect, useReducer, useState } from 'react';
+import { View, Text, Image,StyleSheet, TextInput, TouchableOpacity} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
+import Url from '../components/Url';
 const login = () => {
+  const navigator = useNavigation()
+  const [UserName, setUserName] = useState('')
+  const [UserPassword, setUserPassword] = useState('')
+  useEffect(()=>{
+
+  },[])
+  async function login(){
+    const response  = await fetch(`${Url()}/api/login`,{
+      method:'POST',
+      headers :{
+        'Content-Type':'application/json'
+      },
+      body : JSON.stringify({'name':UserName, 'password': UserPassword})
+    })
+    const data = await response.json()
+    navigator.navigate('alerts');
+  }
     return (
         <View style={styles.login}>
       <View style={styles.div}>
@@ -13,6 +31,7 @@ const login = () => {
                 <Text style={styles.textWrapper}>User name</Text>
               </View>
             </View>
+              <TextInput style={{flex:1, flexDirection:'row', paddingLeft:20, alignItems:'center', paddingTop:10}} onChangeText={(Text)=>setUserName(Text)}/>
             <Image style={styles.user} alt="User" source={require('../assets/user-login.png')} />
           </View>
         </View>
@@ -21,6 +40,7 @@ const login = () => {
             <View style={styles.ViewWrapper}>
               <View style={styles.passwordWrapper}>
                 <Image style={styles.password}alt="Password" source={require('../assets/password-registeration.png')}/>
+              <TextInput style={{flex:1, flexDirection:'row', paddingLeft:20, alignItems:'center', paddingTop:10}} secureTextEntry onChangeText={(Text)=>setUserPassword(Text)}/>
               </View>
             </View>
             <View style={styles.group2}>
@@ -34,8 +54,10 @@ const login = () => {
         <View style={styles.frame}>
           <View style={styles.group3}>
             <View style={styles.overlapGroup2}>
-              <View style={styles.rectangle3}/>
+            <View style={styles.rectangle3}/>
+              <TouchableOpacity onPress={()=>login()}>
               <Text style={styles.textWrapper3}>Login</Text>
+              </TouchableOpacity>
             </View>
           </View>
           <Image style={styles.img} alt="Login" source={require('../assets/login-registeration.png')} />
@@ -58,16 +80,18 @@ const login = () => {
         <View style={styles.group6}>
           <View style={styles.group7}>
             <View style={styles.overlap5}>
+                  <TouchableOpacity onPress={()=>navigator.navigate('register')}>
               <View style={styles.group8}>
                 <View style={styles.overlapGroup3}>
                   <Text style={styles.textWrapper5}>Create</Text>
                 </View>
-              </View>
               <Image
                 style={styles.addUserMale}
                 alt="Add user male"
                 source={require('../assets/add-user-registeration.png')}
-              />
+                />
+              </View>
+                </TouchableOpacity>
             </View>
           </View>
         </View>
@@ -135,7 +159,7 @@ const login = () => {
         fontWeight: '600',
         left: 4,
         letterSpacing: 0,
-        lineHeight: 'normal',
+        // lineHeight: 'normal',
         position: 'absolute',
         textAlign: 'center',
         top: 0,
@@ -212,7 +236,7 @@ const login = () => {
         fontWeight: '600',
         left: 5,
         letterSpacing: 0,
-        lineHeight: 'normal',
+        // lineHeight: 'normal',
         position: 'absolute',
         textAlign: 'center',
         top: -10,
@@ -257,7 +281,7 @@ const login = () => {
         fontWeight: '700',
         left: 33,
         letterSpacing: 0,
-        lineHeight: 'normal',
+        // lineHeight: 'normal',
         position: 'absolute',
         top: 8,
         width: 74,
@@ -288,7 +312,7 @@ const login = () => {
         fontWeight: '700',
         left: 0,
         letterSpacing: 0,
-        lineHeight: 'normal',
+        // lineHeight: 'normal',
         position: 'absolute',
         textAlign: 'center',
         top: 0,
@@ -328,7 +352,7 @@ const login = () => {
         fontWeight: '700',
         left: 0,
         letterSpacing: 0,
-        lineHeight: 'normal',
+        // lineHeight: 'normal',
         position: 'absolute',
         top: 0,
         width: 160,
@@ -383,7 +407,7 @@ const login = () => {
         fontWeight: '700',
         left: 34,
         letterSpacing: 0,
-        lineHeight: 'normal',
+        // lineHeight: 'normal',
         position: 'absolute',
         top: 6,
         width: 88,
@@ -409,7 +433,7 @@ const login = () => {
         fontWeight: '700',
         left: 36,
         letterSpacing: 0,
-        lineHeight: 'normal',
+        // lineHeight: 'normal',
         position: 'absolute',
         top: 0,
         width: 160,

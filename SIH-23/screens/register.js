@@ -1,13 +1,37 @@
-import React from 'react';
-import { View, Text, Image, StyleSheet, TextInput,Dimensions } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, Image, StyleSheet, TextInput,Dimensions, TouchableOpacity } from 'react-native';
+import Url from '../components/Url';
 const { width, height } = Dimensions.get('window');
-const Register = () => {
+const Register = ({navigation}) => {
+
+  const [UserName, setUserName] = useState('')
+  const [ComapanyName, setComapanyName] = useState('')
+  const [Profession, setProfession] = useState('')
+  const [Password, setPassword] = useState('')
+
+  async function create(){
+    const response = await fetch(`${Url()}/api/register`,{
+      method:'POST',
+      headers : {
+        'Content-Type':'application/json'
+      },
+      body : JSON.stringify({
+        'username' : UserName,
+        'company_name' :ComapanyName,
+        'profession' : Profession,
+        'password' : Password,
+      })
+    })
+    const data = response.json()
+    console.log("Button clicked")
+  }
+
   return (
     <View style={[{width,height}]}>
     <View style={[styles.container]}>
       <View style={[styles.register]}>
         <View style={styles.overlap}>
-          <View style={styles.rectangle} />
+          <TextInput style={styles.rectangle} onChangeText={(Text)=>setComapanyName(Text)} />
           <View style={styles.group}>
             <View style={styles.overlapGroup}>
               <Image
@@ -23,8 +47,8 @@ const Register = () => {
             <View style={styles.divWrapper}>
               <Text style={styles.textWrapper}>Company name</Text>
             </View>
-              <TextInput style={{alignItems:'center',flexDirection:'row', justifyContent:'center', backgroundColor:"green"}} value='dghujg'/>
           </View>
+            {/* <TextInput value='sfgskuughufg' style={{flex:1, flexDirection:'row', paddingLeft:20, alignItems:'center', paddingTop:10}} onChangeText={(Text)=>setComapanyName(Text)}/> */}
         </View>
 
         <View style={styles.overlapGroup2}>
@@ -35,17 +59,18 @@ const Register = () => {
           />
           <View style={styles.group2}>
             <View style={styles.overlapGroup3}>
-              <View style={styles.rectangle3} />
+              <TextInput style={styles.rectangle3} onChangeText={(Text)=>setProfession(Text)}/>
               <Text style={styles.textWrapper2}>Profession</Text>
             </View>
           </View>
+          {/* <TextInput value='thisis profession' style={{flex:1, flexDirection:'row', paddingLeft:20, alignItems:'center', paddingTop:10}} onChangeText={(Text)=>setProfession(Text)}/> */}
         </View>
 
         <View style={styles.group3}>
           <View style={styles.overlap2}>
             <View style={styles.group4}>
               <View style={styles.overlapGroup3}>
-                <View style={styles.rectangle4} />
+                <TextInput style={styles.rectangle4} onChangeText={(Text)=>setPassword(Text)}/>
                 <Image
                   style={styles.password}
                   source={require('../assets/password-registeration.png')
@@ -64,7 +89,7 @@ const Register = () => {
 
         <View style={styles.group6}>
           <View style={styles.overlap4}>
-            <View style={styles.rectangle6} />
+            <TextInput style={styles.rectangle6} onChangeText={(Text)=>setUserName(Text)}/>
             <View style={styles.ellipse2} />
             <View style={styles.group7}>
               <View style={styles.overlapGroup4}>
@@ -88,7 +113,9 @@ const Register = () => {
             <View style={styles.overlap5}>
               <View style={styles.group10}>
                 <View style={styles.overlapGroup5}>
+                  <TouchableOpacity onPress={()=>create()}>
                   <Text style={styles.textWrapper6}>Create</Text>
+                  </TouchableOpacity>
                 </View>
               </View>
               <Image
@@ -112,7 +139,9 @@ const Register = () => {
             <View style={styles.group10}>
               <View style={styles.overlapGroup6}>
                 <View style={styles.rectangle8} />
+                <TouchableOpacity onPress={()=>navigation.navigate('login')}>
                 <Text style={styles.textWrapper8}>Login</Text>
+                </TouchableOpacity>
               </View>
             </View>
             <Image
@@ -156,6 +185,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 16,
     width: 327,
+    paddingLeft:10
   },
   group: {
     height: 66,
@@ -200,7 +230,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     left: 10,
     letterSpacing: 0,
-    lineHeight: 'normal',
+    // lineHeight: 'normal',
     position: 'absolute',
     textAlign: 'center',
     top: 5,
@@ -216,6 +246,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 260,
     width: 333,
+    paddingLeft:10
 },
   overlapGroup2: {
     height: 19,
@@ -257,7 +288,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     left: 30,
     letterSpacing: 0,
-    lineHeight: 'normal',
+    // lineHeight: 'normal',
     position: 'absolute',
     textAlign: 'center',
     top: 250,
@@ -302,6 +333,9 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 11,
     width: 339,
+    alignContent:'center',
+    justifyContent:'center',
+    paddingLeft:10
   },
   img: {
     height: 72,
@@ -344,7 +378,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     left: 5,
     letterSpacing: 0,
-    lineHeight: 'normal',
+    // lineHeight: 'normal',
     position: 'absolute',
     textAlign: 'center',
     top: 0,
@@ -375,6 +409,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 15,
     width: 330,
+    paddingLeft:10
   },
   ellipse2: {
     // backgroundColor: '#e0e0e0',
@@ -406,7 +441,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     left: 4,
     letterSpacing: 0,
-    lineHeight: 'normal',
+    // lineHeight: 'normal',
     position: 'absolute',
     textAlign: 'center',
     top: 0,
@@ -434,7 +469,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     left: 0,
     letterSpacing: 0,
-    lineHeight: 'normal',
+    // lineHeight: 'normal',
     position: 'absolute',
     top: 0,
     whiteSpace: 'nowrap',
@@ -448,6 +483,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 45,
     width: 68,
+    paddingLeft:10
   },
   groupWrapper: {
     height: 52,
@@ -485,7 +521,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     left: 34,
     letterSpacing: 0,
-    lineHeight: 'normal',
+    // lineHeight: 'normal',
     position: 'absolute',
     top: 6,
     width: 88,
@@ -522,7 +558,8 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     left: 0,
     letterSpacing: 0,
-    lineHeight: 'normal',
+    // lineHeight: 'normal',
+
     position: 'absolute',
     top: 0,
     width: 160,
@@ -570,7 +607,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     left: 33,
     letterSpacing: 0,
-    lineHeight: 'normal',
+    // lineHeight: 'normal',
     position: 'absolute',
     top: 8,
     width: 74,
