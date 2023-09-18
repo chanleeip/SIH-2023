@@ -1,8 +1,11 @@
 import React from "react";
-import { View, Text, TextInput, TouchableOpacity, Image, StyleSheet } from "react-native";
+import { View, Text, TextInput, ScrollView, Image, StyleSheet } from "react-native";
+import Bottom_bar from "../components/botton-bar";
 
 const post_message = () => {
   return (
+    <View style={{flex:0.98,flexDirection:'column'}}>
+    <ScrollView>
         <View style={styles.post}>
           <View style={styles.div}>
             <Text style={styles.textWrapper}>Type</Text>
@@ -24,6 +27,7 @@ const post_message = () => {
             <View style={styles.group}>
               <Text style={styles.textWrapper6}>Post</Text>
             </View>
+            <View style={{flex:1}}>
             <View style={styles.frame}>
               <View style={styles.overlapGroupWrapper}>
                 <View style={styles.overlapGroup}>
@@ -33,7 +37,13 @@ const post_message = () => {
               </View>
               <Image style={styles.login} alt="Login" source={require('../assets/login-registeration.png')}/>
             </View>
+            </View>
           </View>
+        </View>
+        </ScrollView>
+        <View s>
+          <Bottom_bar/>
+        </View>
         </View>
       );
     };
@@ -43,6 +53,7 @@ const styles=StyleSheet.create({ post: {
     flexDirection: 'row',
     justifyContent: 'center',
     width: '100%',
+    height:'100%'
   },
   div: {
     backgroundColor: '#ffffff',

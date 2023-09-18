@@ -1,23 +1,30 @@
-import{View,Text,StyleSheet,Image} from 'react-native'
+import{View,Text,StyleSheet,Image,Dimensions,TextInput} from 'react-native'
+const {width,height}=Dimensions.get('window')
 
 const Search_bar=({text})=>{return(
+ 
     <View style={styles.searchBar}>
           <Image style={styles.searchIcon} alt="Search icon" source={require('../assets/search-map.png')}/>
-          <Text style={styles.searchPlaces}>{text}</Text>
+          <TextInput 
+        style={styles.searchPlaces}
+        placeholder={text}
+        // onChangeText={onChangeText}
+        placeholderTextColor="#cac5c5"
+      />
         </View>
 )}
 const styles=StyleSheet.create({
     searchBar: {
-        backgroundColor: '#ffffff',
+        alignItems:'center',
         borderWidth: 2,
         borderColor: '#00203f',
         borderRadius: 20,
         height: 57,
-        left: 55,
         overflow: 'hidden',
         position: 'absolute',
-        top: 50,
-        width: 308,
+        top: 40,
+        left:width*0.18,
+        width: width*0.8,
       },
       searchIcon: {
         height: 36,
@@ -36,6 +43,7 @@ const styles=StyleSheet.create({
         lineHeight: 24,
         position: 'absolute',
         top: 11,
+        backgroundColor:'red'
       }
 })
 export default Search_bar

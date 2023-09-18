@@ -9,8 +9,8 @@ const Side_bar_fore=()=>{return(
 )}
 const styles=StyleSheet.create({
     sidebarCollapsedInstance: {
-        top: 55,
-        height:50,
+        top: 50,
+        height:40,
         width:50
       }
 })

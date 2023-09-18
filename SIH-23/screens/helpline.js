@@ -1,20 +1,28 @@
-import{View,Text,Image} from 'react-native'
+import{View,Text,Image,ScrollView} from 'react-native'
 import Helpline_post from '../components/helpline-post'
 import Side_bar_fore from '../components/side_bar_fore'
 import Search_bar from '../components/search-bar'
 import Bottom_bar from '../components/botton-bar'
 
 const Helpline=()=>{return(
-    <View>
-<Side_bar_fore/>
+    <View style={{flex:1}}>
+        <View style={{flex:0.2}}>
+        <Side_bar_fore/>
 <Search_bar text={"Search HelpNumbers"}/>
-<View style={{flexDirection:'column'}}>
-
+        </View>
+<View style={{flexDirection:'column',flex:1,backgroundColor:'white'}}>
+<ScrollView>
     <Helpline_post heading={"Ambulance"} content={"1223456576"}/>
     <Helpline_post heading={"Ambulance"} content={"1223456576"}/>
     <Helpline_post heading={"Ambulance"} content={"1223456576"}/>
+    <Helpline_post heading={"Ambulance"} content={"1223456576"}/>
+    <Helpline_post heading={"Ambulance"} content={"1223456576"}/>
+    <Helpline_post heading={"Ambulance"} content={"1223456576"}/>
+    </ScrollView>
 </View>
-<Bottom_bar custom_style={{top:205}}/>
+<View>
+<Bottom_bar style={{flex:0.16}}/>
+</View>
 </View>
 )}
 export default Helpline

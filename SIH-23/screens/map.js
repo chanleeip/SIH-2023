@@ -1,31 +1,35 @@
-import { View,Text,StyleSheet,Dimensions } from "react-native";
+import { View,Text,StyleSheet,Dimensions,ScrollView } from "react-native";
 import Bottom_bar from "../components/botton-bar";
 import Map_filter from "../components/map-filter";
 import Search_bar from "../components/search-bar";
 import Side_bar_fore from "../components/side_bar_fore";
+import Map_basic from "../components/map-basic";
 const { width, height } = Dimensions.get('window');
 const Map=()=>{return(
-    <View style={[styles.homeScreen,{width,height}]}>
-      <View style={styles.overlap3}>
-      <Side_bar_fore />
-        <Search_bar text="Search   Places"/>
-        <View style={{flexDirection:'row'}}>
+    <View style={[styles.homeScreen]}>
+      <View style={{flex:0.19,backgroundColor:'white'}}>
+            <Side_bar_fore/>
+            <Search_bar text={"hello"}/>
+            </View>
+        <View style={{flexDirection:'row',flex:0.06,backgroundColor:'white'}}>
+          <ScrollView horizontal={true}>
         <Map_filter text="  State" />
         <Map_filter text="Nearby" />
         <Map_filter text="Types" />
         <Map_filter text="Duration" />
+        </ScrollView>
         </View>
-        <View></View>
-        <Bottom_bar custom_style={{bottom:-675}}/>
+        <View style={{flex:1}}><Map_basic/></View>
+        <View style={{flex:0.125,backgroundColor:'white'}}>
+        <Bottom_bar/>
+        </View>
       </View>
-    </View>
 )}
 
 const styles = StyleSheet.create({
   homeScreen: {
-    backgroundColor: '#ffffff',
-    height: 844,
-    width: 390,
+    backgroundColor: 'white',
+    flex:1,
   },
   overlap3: {
     backgroundColor: '#ffffff',

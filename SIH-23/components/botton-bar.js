@@ -16,7 +16,7 @@ const Bottom_bar = ()=>{
                     <Image style={styles.siren} alt="Siren" source={require('../assets/siren-bottom-ba.png')}/>
                     <Text style={styles.div}>Alerts</Text>
                   </View>
-                </View>
+                </View> 
                 <View style={styles.postNavigation}>
                   <Image style={styles.postIcon} alt="Post icon" source={require('../assets/post-bottom-bar.png')} />
                    <Text style={styles.textWrapper2}>Post</Text>

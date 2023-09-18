@@ -1,7 +1,8 @@
-import{Text,View,StyleSheet,Image} from 'react-native'
+import{Text,View,StyleSheet,Image,Dimensions} from 'react-native'
+const {width,height}=Dimensions.get('window')
 
-const Alert_post=({heading,content,custom_style,path})=>{return(
-    <View style={[styles.iphone,custom_style]}>
+const Alert_post=({heading,content,path})=>{return(
+    <View style={[styles.iphone]}>
       <View style={styles.overlapGroupWrapper}>
         <View style={styles.overlapGroup}>
           <View style={styles.card}>
@@ -9,15 +10,13 @@ const Alert_post=({heading,content,custom_style,path})=>{return(
             <Text style={styles.div}>{content}</Text>
             <Image style={styles.ellipse} alt="Ellipse" source={path} />
           </View>
-          <View style={styles.frame}>
-            <Text style={styles.textWrapper2}>Contact</Text>
-            <Image style={styles.group} alt="Group" source={require('../assets/contact-alerts.png')} />
-          </View>
-          <View style={styles.frameWrapper}>
             <View style={styles.frame2}>
               <Text style={styles.textWrapper3}>Report</Text>
               <Image style={styles.vector} alt="Vector" source={require('../assets/vector.png')}/>
             </View>
+            <View style={styles.frame}>
+            <Text style={styles.textWrapper2}>Contact</Text>
+            <Image style={styles.group} alt="Group" source={require('../assets/contact-alerts.png')} />
           </View>
         </View>
       </View>
@@ -30,14 +29,14 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
       justifyContent: 'center',
       width: '100%',
-      top:100,
       paddingBottom:20
     },
     overlapGroupWrapper: {
-      backgroundColor: '#ffffff',
+        flex:1,
+        flexDirection:'row',
       height: 144,
       overflow: 'hidden',
-      width: 385,
+      width: width*0.9,
     },
     overlapGroup: {
       height: 146,
@@ -47,7 +46,6 @@ const styles = StyleSheet.create({
       width: 330,
     },
     card: {
-      backgroundColor: '#eff1ff',
       borderWidth: 2,
       borderColor: '#00203f',
       borderRadius: 15,
@@ -56,10 +54,10 @@ const styles = StyleSheet.create({
       overflow: 'hidden',
       position: 'absolute',
       top: 0,
-      width: 330,
+      width: width*0.9,
     },
     textWrapper: {
-      color: '#00203f',
+      color: 'orange',
       fontFamily: 'Poppins',
       fontSize: 22,
       fontWeight: '600',
@@ -70,7 +68,7 @@ const styles = StyleSheet.create({
       top: 6,
     },
     div: {
-      color: '#777373',
+      color: 'pink',
       fontFamily: 'Roboto',
       fontSize: 14,
       fontWeight: '600',
@@ -94,11 +92,15 @@ const styles = StyleSheet.create({
       borderColor: '#00203f',
       borderRadius: 10,
       height: 28,
-      left: 185,
+      alignContent:'flex-end',
+      justifyContent:'flex-end',
+      alignSelf: 'flex-end',
+      alignItems:'flex-end',
       overflow: 'hidden',
       position: 'absolute',
-      top: 117,
       width: 108,
+      left:width*0.6,
+      bottom:0
     },
     textWrapper2: {
       color: '#000000',
@@ -118,24 +120,21 @@ const styles = StyleSheet.create({
       top: 5,
       width: 15,
     },
-    frameWrapper: {
-      height: 27,
-      left: 48,
-      position: 'absolute',
-      top: 118,
-      width: 104,
-    },
     frame2: {
       backgroundColor: '#8ceac1',
       borderWidth: 1.5,
+      alignContent:'flex-start',
+      justifyContent:'flex-start',
+      alignSelf: 'flex-start',
+      alignItems:'flex-start',
       borderColor: '#00203f',
       borderRadius: 10,
       height: 28,
-      left: -1,
       overflow: 'hidden',
-      position: 'relative',
-      top: -1,
+      position: 'absolute',
       width: 106,
+      left:width*0.1,
+      bottom:0
     },
     textWrapper3: {
       color: '#000000',

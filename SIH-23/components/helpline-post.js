@@ -1,10 +1,11 @@
-import {Text,Image,View,StyleSheet} from 'react-native'
+import {Text,Image,View,StyleSheet,Dimensions} from 'react-native'
+const {width,height} =Dimensions.get('window')
 
 const Helpline_post=({heading,content})=>{return(
 <View style={styles.frame}>
       <View style={styles.div}>
-      <Text style={styles.textWrapper}>{heading}</Text>
-        <Text style={styles.textWrapper2}>{content}</Text>
+      <Text style={styles.textWrapper}>{"Hi"}</Text>
+        <Text style={styles.textWrapper2}>{"ds"}</Text>
       </View>
     </View>
 
@@ -14,15 +15,14 @@ const styles = StyleSheet.create({
       alignItems: 'flex-start',
       flexDirection: 'column',
       paddingHorizontal: 22,
-      paddingTop: 20,
     },
     div: {
-        top:50,
+      top:20,
       backgroundColor: '#00203f',
       borderRadius: 10,
-      height: 136,
+      height: height*0.2,
       overflow: 'hidden',
-      width: 341,
+      width: width*0.8,
       marginBottom:10,
     },
     textWrapper: {

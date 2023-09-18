@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, Image, StyleSheet, TextInput,Dimensions, TouchableOpacity } from 'react-native';
+import { View, Text, Image, StyleSheet, TextInput,Dimensions, TouchableOpacity,ScrollView } from 'react-native';
 import Url from '../components/Url';
 const { width, height } = Dimensions.get('window');
 const Register = ({navigation}) => {
@@ -27,7 +27,8 @@ const Register = ({navigation}) => {
   }
 
   return (
-    <View style={[{width,height}]}>
+    <ScrollView>
+    <View style={[{width,height,flex:1}]}>
     <View style={[styles.container]}>
       <View style={[styles.register]}>
         <View style={styles.overlap}>
@@ -44,6 +45,10 @@ const Register = ({navigation}) => {
             </View>
           </View>
           <View style={styles.overlapWrapper}>
+          <View style={styles.group8}>
+          <Text style={styles.textWrapper5}>REGISTRATION</Text>
+          {/* <View style={styles.rectangle7} /> */}
+        </View>
             <View style={styles.divWrapper}>
               <Text style={styles.textWrapper}>Company name</Text>
             </View>
@@ -103,10 +108,7 @@ const Register = ({navigation}) => {
           </View>
         </View>
 
-        <View style={styles.group8}>
-          <Text style={styles.textWrapper5}>REGISTRATION</Text>
-          <View style={styles.rectangle7} />
-        </View>
+       
 
         <View style={styles.groupWrapper}>
           <View style={styles.group9}>
@@ -153,6 +155,7 @@ const Register = ({navigation}) => {
       </View>
     </View>
     </View>
+    </ScrollView>
   );
 };
 
@@ -457,9 +460,9 @@ const styles = StyleSheet.create({
   },
   group8: {
     height: 50,
-    left: 98,
+    left: 50,
     position: 'absolute',
-    top: 44,
+    top: -36,
     width: 206,
   },
   textWrapper5: {
