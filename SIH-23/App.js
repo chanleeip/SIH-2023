@@ -31,9 +31,9 @@ export default function App() {
   return (
     <NavigationContainer>
     <Stack.Navigator initialRouteName='login'>
-      <Stack.Screen name="login" component={register_screen} options={{headerShown:false}}/>
+      <Stack.Screen name="login" component={login} options={{headerShown:false}}/>
       <Stack.Screen name="register" component={register_screen} options={{headerShown:false}}/>
-      {/* <Stack.Screen name="alerts" component={Alerts} options={{headerShown:false}}/> */}
+      <Stack.Screen name="alerts" component={Alerts} options={{headerShown:false}}/>
     </Stack.Navigator>
   </NavigationContainer>
   );

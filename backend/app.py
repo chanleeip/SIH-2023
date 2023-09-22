@@ -24,7 +24,7 @@ def register():
                     'company_name' :comapny_name,
                     'profession' : profession,
                     'password' : password,})
-    return {'status':False, 'message':'User Registered'}
+    return {'status':True, 'message':'User Registered'}
 
 
 @app.post('/api/login')
@@ -40,4 +40,4 @@ def login():
 
 
 if __name__=="__main__":
-    app.run(debug=True ,host='192.168.0.139')
+    app.run(debug=True ,host='172.16.125.202')

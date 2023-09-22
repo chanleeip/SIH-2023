@@ -23,7 +23,9 @@ const Register = ({navigation}) => {
       })
     })
     const data = response.json()
-    console.log("Button clicked")
+    if (data.status){
+      navigation.replace('login')
+    }
   }
 
   return (

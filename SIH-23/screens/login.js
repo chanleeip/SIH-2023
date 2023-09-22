@@ -10,6 +10,7 @@ const login = () => {
 
   },[])
   async function login(){
+    console.log("ok");
     const response  = await fetch(`${Url()}/api/login`,{
       method:'POST',
       headers :{

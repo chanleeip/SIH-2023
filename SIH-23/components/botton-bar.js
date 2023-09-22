@@ -75,7 +75,7 @@ const Bottom_bar = ()=>{
         fontWeight: '600',
         left: 0,
         letterSpacing: 0,
-        lineHeight: 'normal',
+        //  lineHeight: 'normal',
         position: 'relative',
       },
       alertNavigation: {
@@ -103,7 +103,7 @@ const Bottom_bar = ()=>{
         fontSize: 15,
         fontWeight: '600',
         letterSpacing: 0,
-        lineHeight: 'normal',
+        //  lineHeight: 'normal',
         position: 'relative',
         width: 48,
       },
@@ -119,7 +119,7 @@ const Bottom_bar = ()=>{
         fontFamily: 'Poppins',
         fontSize: 15,
         fontWeight: '600',
-        lineHeight: 'normal',
+        //  lineHeight: 'normal',
         position: 'relative',
       },
       postIcon: {
@@ -145,7 +145,7 @@ const Bottom_bar = ()=>{
         fontFamily: 'Poppins',
         fontSize: 15,
         fontWeight: '600',
-        lineHeight: 'normal',
+        //  lineHeight: 'normal',
         position: 'relative',
       },
       emergencyNavigation: {
@@ -172,7 +172,7 @@ const Bottom_bar = ()=>{
         fontSize: 15,
         fontWeight: '600',
         letterSpacing: 0,
-        lineHeight: 'normal',
+        //  lineHeight: 'normal',
         position: 'relative',
       },})
 

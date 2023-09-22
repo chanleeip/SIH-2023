@@ -1,4 +1,4 @@
 function Url(){
-    return 'http://192.168.0.139:5000/'
+    return 'http://172.16.125.202:5000/'
 }
 export default Url;

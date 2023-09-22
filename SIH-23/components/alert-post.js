@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
       fontWeight: '600',
       left: 16,
       letterSpacing: 0,
-      lineHeight: 28, // Adjust as needed
+      //  lineHeight: 28, // Adjust as needed
       position: 'absolute',
       top: 6,
     },
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
       fontWeight: '600',
       left: 16,
       letterSpacing: 0.28,
-      lineHeight: 18, // Adjust as needed
+      //  lineHeight: 18, // Adjust as needed
       position: 'absolute',
       top: 44,
       width: 215,
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
       fontWeight: '600',
       left: 35,
       letterSpacing: 0,
-      lineHeight: 18, // Adjust as needed
+      //  lineHeight: 18, // Adjust as needed
       position: 'absolute',
       top: 1,
     },
@@ -143,7 +143,7 @@ const styles = StyleSheet.create({
       fontWeight: '600',
       left: 33,
       letterSpacing: 0,
-      lineHeight: 18, // Adjust as needed
+      //  lineHeight: 18, // Adjust as needed
       position: 'absolute',
       top: 1,
     },

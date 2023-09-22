@@ -40,7 +40,7 @@ const styles=StyleSheet.create({
         fontWeight: '600',
         left: 70,
         letterSpacing: 0,
-        lineHeight: 24,
+        //  lineHeight: 24,
         position: 'absolute',
         top: 11,
         backgroundColor:'red'
