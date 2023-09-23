@@ -25,13 +25,53 @@ import Helpline from './screens/helpline';
 import Map from './screens/map';
 import post_message from './screens/post-message';
 
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useEffect, useState } from 'react';
+
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+
+  const [LoggedInStatus, setLoggedInStatus] = useState('LoggedIn');
+  const [isLoading, setisLoading] = useState(true);
+  useEffect(()=>{
+    async function redirect_to_dashboard(){
+        const loginstatus = await AsyncStorage.getItem('IsLoggedIn');
+        if (loginstatus != null){
+          setLoggedInStatus(loginstatus);
+          setisLoading(false);
+        }
+        else {
+          setLoggedInStatus('onboarding');
+          setisLoading(false);
+        }
+    }
+    redirect_to_dashboard();
+  },[]);
+
+  if(isLoading){
+    return(
+      <View>
+          <Text>Loading</Text>
+      </View>
+    )
+  }
+
+  function startapp(){
+    if (LoggedInStatus == 'Loggedin'){
+      return "alerts";
+    } else if (LoggedInStatus == 'NotLoggedIn'){
+      return "login";
+    } else if (LoggedInStatus == 'onboarding') {
+      return "onboarding";
+    }
+  }
+
   return (
     <NavigationContainer>
-    <Stack.Navigator initialRouteName='login'>
+    <Stack.Navigator initialRouteName={startapp()}>
       <Stack.Screen name="login" component={login} options={{headerShown:false}}/>
+      <Stack.Screen name="onboarding" component={Onboarding_screen} options={{headerShown:false}}/>
       <Stack.Screen name="register" component={register_screen} options={{headerShown:false}}/>
       <Stack.Screen name="alerts" component={Alerts} options={{headerShown:false}}/>
     </Stack.Navigator>

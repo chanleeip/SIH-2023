@@ -1,7 +1,8 @@
 import React, { useEffect, useReducer, useState } from 'react';
-import { View, Text, Image,StyleSheet, TextInput, TouchableOpacity} from 'react-native';
+import { View, Text, Image,StyleSheet, TextInput, TouchableOpacity, Alert} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import Url from '../components/Url';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 const login = () => {
   const navigator = useNavigation()
   const [UserName, setUserName] = useState('')
@@ -19,7 +20,14 @@ const login = () => {
       body : JSON.stringify({'name':UserName, 'password': UserPassword})
     })
     const data = await response.json()
-    navigator.navigate('alerts');
+    if (data.status){
+      AsyncStorage.setItem('IsLoggedIn','Loggedin')
+      AsyncStorage.setItem('Token',data.token)
+      navigator.replace('alerts');
+    }
+    else {
+      Alert.alert("Error")
+    }
   }
     return (
         <View style={styles.login}>

@@ -1,9 +1,15 @@
 from flask import Flask, jsonify, request
 import pymongo, os 
 from dotenv import load_dotenv
+import requests
+from flask_jwt_extended import create_access_token, JWTManager, jwt_required
 load_dotenv()
+import datetime
 
 app = Flask(__name__)
+app.config['JWT_SECRET_KEY'] = os.getenv('secret_key')
+app.config['JWT_ACCESS_TOKEN_EXPIRES'] = datetime.timedelta(weeks=8)
+JWTManager(app)
 server = pymongo.MongoClient(os.getenv('mongoclient'))
 db = server['db']
 user = db['users']
@@ -34,10 +40,38 @@ def login():
     # 
     # 
     # 
+    access_token = create_access_token(identity=10, additional_claims={'role':'user'})
+    return {'status':True, 'token':access_token}
+
+@app.route('/api/alerts')
+@jwt_required()
+def alerts():
     return {'status':True}
 
+@app.route('/api/Allalertsdetails')
+def AllAlertDetails():
+    response = requests.get('https://sachet.ndma.gov.in/cap_public_website/FetchAllAlertDetails').json()
+    return response
 
+@app.get('/api/Statewisedetails')
+def StateWiseDetails():
+    response = requests.get('https://sachet.ndma.gov.in/cap_public_website/FetchDashboardData').json()
+    return response
 
+@app.route('/api/localstate')
+def LocalState():
+    response = requests.get('https://sachet.ndma.gov.in/locales/en/state.json').json()
+    return response
+
+@app.route('/api/earthquake')
+def EarthQuake():
+    response = requests.get('https://sachet.ndma.gov.in/cap_public_website/FetchEarthquakeAlerts').json()
+    return response
+
+@app.route('/api/viewpointlink')
+def viewpointlink():
+    response = requests.get('https://maps.googleapis.com/$rpc/google.internal.maps.mapsjs.v1.MapsJsInternalService/GetViewportInfo').json()
+    return response
 
 if __name__=="__main__":
-    app.run(debug=True ,host='172.16.125.202')
+    app.run(debug=True ,host='192.168.0.152')
