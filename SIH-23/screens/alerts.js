@@ -10,8 +10,10 @@ import Url from '../components/Url'
 
 const Alerts=({navigation})=>{
     const [Isloding, setIsloding] = useState(true)
+    const [UserRole, setUserRole] = useState('')
     useEffect(async ()=>{
         const token = await AsyncStorage.getItem('Token')
+        setUserRole(await AsyncStorage.getItem('role'))        
         const response = await fetch(`${Url()}/api/alerts`,{
             method : 'GET',
             headers : {
@@ -22,7 +24,89 @@ const Alerts=({navigation})=>{
         if(data.status){
             setIsloding(false)
         }
+        else{
+            navigation.replace('login')
+        }
     },[])
+
+    const alerts = [
+        {
+          Title: 'Alert 1',
+          Message: 'This is the first alert message.',
+          Type: 'Information',
+          Timestamp: '2023-09-23T08:00:00Z',
+        },
+        {
+          Title: 'Alert 2',
+          Message: 'A critical alert has occurred!',
+          Type: 'Critical',
+          Timestamp: '2023-09-23T10:30:00Z',
+        },
+        {
+          Title: 'Alert 3',
+          Message: 'Warning: Low battery level.',
+          Type: 'Warning',
+          Timestamp: '2023-09-23T14:15:00Z',
+        },
+        {
+            Title: 'Alert 1',
+            Message: 'This is the first alert message.',
+            Type: 'Information',
+            Timestamp: '2023-09-23T08:00:00Z',
+          },
+          {
+            Title: 'Alert 2',
+            Message: 'A critical alert has occurred!',
+            Type: 'Critical',
+            Timestamp: '2023-09-23T10:30:00Z',
+          },
+          {
+            Title: 'Alert 3',
+            Message: 'Warning: Low battery level.',
+            Type: 'Warning',
+            Timestamp: '2023-09-23T14:15:00Z',
+          },
+          {
+            Title: 'Alert 1',
+            Message: 'This is the first alert message.',
+            Type: 'Information',
+            Timestamp: '2023-09-23T08:00:00Z',
+          },
+          {
+            Title: 'Alert 2',
+            Message: 'A critical alert has occhudouhoudhouhwifuwgvi idcvghurred!',
+            Type: 'Critical',
+            Timestamp: '2023-09-23T10:30:00Z',
+          },
+          {
+            Title: 'Alert 3',
+            Message: 'Warning: Low battery level.',
+            Type: 'Warning',
+            Timestamp: '2023-09-23T14:15:00Z',
+          },
+          {
+            Title: 'Alert 1',
+            Message: 'This is the first alert message.',
+            Type: 'Information',
+            Timestamp: '2023-09-23T08:00:00Z',
+          },
+          {
+            Title: 'Alert 2',
+            Message: 'A critical alert has occurred!',
+            Type: 'Critical',
+            Timestamp: '2023-09-23T10:30:00Z',
+          },
+          {
+            Title: 'Alert 3',
+            Message: 'Warning: Low battery level.',
+            Type: 'Warning',
+            Timestamp: '2023-09-23T14:15:00Z',
+          },
+        // Add more alert objects as needed
+      ];
+      
+        
+
     if (Isloding){
         return(
             <View style={{flex:1,flexDirection:'row', justifyContent:'center', alignItems:'center'}}>
@@ -38,6 +122,7 @@ const Alerts=({navigation})=>{
             <Search_bar/>
             <Side_bar_fore/>
             </View>
+            <Text style={{paddingLeft:10, fontSize:20, textTransform:'uppercase'}}>{UserRole}</Text>
             <View style={{flex:0.1,flexDirection:'row'}}>
                 <ScrollView horizontal={true}>
             <Map_filter/>
@@ -48,11 +133,13 @@ const Alerts=({navigation})=>{
             </View>
             <View style={{flex:1,flexDirection:'column'}}>
             <ScrollView>
-                <Alert_post/>
-                <Alert_post/>
-                <Alert_post/>
-                <Alert_post/>
+                {alerts.map((alert)=>(
+                    <View>
+                        <Alert_post alert={alert}/>
+                    </View>
+                ))}
                 </ScrollView>
+                {/* <Text>fdsfdgfhhgffhgh</Text> */}
             </View>
             <View style={{flex:0.16}}>
                 <Bottom_bar/>

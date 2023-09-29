@@ -14,10 +14,10 @@ server = pymongo.MongoClient(os.getenv('mongoclient'))
 db = server['db']
 user = db['users']
 
-@app.route('/')
-def home():
-    user.insert_one({'id':1000})
-    return {'status':2}
+# @app.route('/')
+# def home():
+#     user.insert_one({'id':1000})
+#     return {'status':2}
 
 @app.post('/api/register')
 def register():
@@ -29,19 +29,21 @@ def register():
     user.insert_one({'username' : username,
                     'company_name' :comapny_name,
                     'profession' : profession,
-                    'password' : password,})
+                    'password' : password,
+                    'type':'users'
+                    })
     return {'status':True, 'message':'User Registered'}
 
 
 @app.post('/api/login')
 def login():
     data = request.get_json()
-    print(data)
-    # 
-    # 
-    # 
-    access_token = create_access_token(identity=10, additional_claims={'role':'user'})
-    return {'status':True, 'token':access_token}
+    exist_user = user.find_one({'username':data['name'], 'password':data['password']},{'_id':0})
+    # print(exist_user)
+    if exist_user:
+        access_token = create_access_token(identity=10, additional_claims={'role':exist_user['type']})
+        return { 'status':True, 'token':access_token, 'role':exist_user['type'] }
+    return {'status':False}
 
 @app.route('/api/alerts')
 @jwt_required()
@@ -74,4 +76,4 @@ def viewpointlink():
     return response
 
 if __name__=="__main__":
-    app.run(debug=True ,host='192.168.0.152')
+    app.run(debug=True ,host='192.168.0.187')

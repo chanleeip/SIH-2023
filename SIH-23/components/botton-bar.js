@@ -1,8 +1,17 @@
-import { View, Text, Image,StyleSheet,Dimensions} from 'react-native';
+import { View, Text, Image,StyleSheet,Dimensions, TouchableOpacity} from 'react-native';
 const {width,height}=Dimensions.get('window');
 import PropTypes from 'prop-types';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useNavigation } from '@react-navigation/native';
 
 const Bottom_bar = ()=>{
+  const navigation = useNavigation()
+  function btn_logout(){
+    AsyncStorage.removeItem('token')
+    AsyncStorage.setItem('IsLoggedIn','NotLoggedIn')
+    AsyncStorage.removeItem('role')
+    navigation.replace('login')
+  }
             return (
               <View style={[styles.bottomBar]}>
                 <View style={styles.mapNavigation}>
@@ -22,8 +31,10 @@ const Bottom_bar = ()=>{
                    <Text style={styles.textWrapper2}>Post</Text>
                 </View>
                 <View style={styles.chatNavigation}>
-                  <Image style={styles.vector} alt="Vector" source={require('../assets/post-bottom_bar.png')} />
-                  <Text style={styles.textWrapper3}>Chats</Text>
+                  <TouchableOpacity onPress={()=>btn_logout()}>
+                    <Image style={styles.vector} alt="Vector" source={require('../assets/log_out-sidebar.png')} />
+                    <Text style={styles.textWrapper3}>Logout</Text>    
+                  </TouchableOpacity>
                 </View>
                 <View style={styles.emergencyNavigation}>
                   <View style={styles.overlap2}>
@@ -169,7 +180,7 @@ const Bottom_bar = ()=>{
       textWrapper4: {
         color: '#8ceac1',
         fontFamily: 'Poppins',
-        fontSize: 15,
+        fontSize: 14,
         fontWeight: '600',
         letterSpacing: 0,
         //  lineHeight: 'normal',

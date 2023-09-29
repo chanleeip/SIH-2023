@@ -3,14 +3,16 @@ import { View, Text, Image,StyleSheet, TextInput, TouchableOpacity, Alert} from 
 import {useNavigation} from '@react-navigation/native';
 import Url from '../components/Url';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import ToastManager, { Toast } from 'toastify-react-native'
 const login = () => {
   const navigator = useNavigation()
   const [UserName, setUserName] = useState('')
   const [UserPassword, setUserPassword] = useState('')
+  // const [LoginError, setLoginError] = useState('')
   useEffect(()=>{
 
   },[])
-  async function login(){
+  async function btn_login(){
     console.log("ok");
     const response  = await fetch(`${Url()}/api/login`,{
       method:'POST',
@@ -23,15 +25,17 @@ const login = () => {
     if (data.status){
       AsyncStorage.setItem('IsLoggedIn','Loggedin')
       AsyncStorage.setItem('Token',data.token)
+      AsyncStorage.setItem('role',data.role)
       navigator.replace('alerts');
     }
     else {
-      Alert.alert("Error")
+      Toast.error('Wrong Credentials')
     }
   }
     return (
         <View style={styles.login}>
       <View style={styles.div}>
+      <ToastManager />
         <View style={styles.group}>
           <View style={styles.overlap}>
             <View style={styles.rectangle} />
@@ -64,7 +68,7 @@ const login = () => {
           <View style={styles.group3}>
             <View style={styles.overlapGroup2}>
             <View style={styles.rectangle3}/>
-              <TouchableOpacity onPress={()=>login()}>
+              <TouchableOpacity onPress={()=>btn_login()}>
               <Text style={styles.textWrapper3}>Login</Text>
               </TouchableOpacity>
             </View>
@@ -74,6 +78,7 @@ const login = () => {
         <View style={styles.group4}>
           <View style={styles.overlap4}>
             <Text style={styles.textWrapper4}>LOGIN</Text>
+            {/* <Text style={{fontSize:20, flexDirection:'row', alignItems:'center'}}>{LoginError}</Text> */}
             <View style={styles.rectangle4}/>
           </View>
         </View>
@@ -364,7 +369,7 @@ const login = () => {
         // lineHeight: 'normal',
         position: 'absolute',
         top: 0,
-        width: 160,
+        width: 180,
       },
       line: {
         height: 2,

@@ -30,8 +30,9 @@ import { useEffect, useState } from 'react';
 
 const Stack = createNativeStackNavigator();
 
-export default function App() {
 
+export default function App() {
+  
   const [LoggedInStatus, setLoggedInStatus] = useState('LoggedIn');
   const [isLoading, setisLoading] = useState(true);
   useEffect(()=>{

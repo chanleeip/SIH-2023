@@ -1,13 +1,19 @@
 import{Text,View,StyleSheet,Image,Dimensions} from 'react-native'
 const {width,height}=Dimensions.get('window')
 
-const Alert_post=({heading,content,path})=>{return(
+const Alert_post=({
+  content,
+  path,
+  alert
+})=>{
+  return(
     <View style={[styles.iphone]}>
       <View style={styles.overlapGroupWrapper}>
         <View style={styles.overlapGroup}>
           <View style={styles.card}>
-            <Text style={styles.textWrapper}>{heading}</Text>
-            <Text style={styles.div}>{content}</Text>
+            <Text style={{fontSize:20, fontWeight:'bold', paddingLeft:10}}>{alert.Title}</Text>
+            <Text style={{paddingLeft:10, }}>{alert.Message}</Text>
+            <Text style={{paddingRight:10, textAlign:'right'}}>{alert.Timestamp}</Text>
             <Image style={styles.ellipse} alt="Ellipse" source={path} />
           </View>
             <View style={styles.frame2}>
