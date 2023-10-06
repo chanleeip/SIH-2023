@@ -5,6 +5,7 @@ import requests
 from flask_jwt_extended import create_access_token, JWTManager, jwt_required
 load_dotenv()
 import datetime
+import socket
 
 app = Flask(__name__)
 app.config['JWT_SECRET_KEY'] = os.getenv('secret_key')
@@ -13,6 +14,8 @@ JWTManager(app)
 server = pymongo.MongoClient(os.getenv('mongoclient'))
 db = server['db']
 user = db['users']
+hostname = socket.gethostname()
+IPAddr = socket.gethostbyname(hostname)
 
 # @app.route('/')
 # def home():
@@ -76,4 +79,4 @@ def viewpointlink():
     return response
 
 if __name__=="__main__":
-    app.run(debug=True ,host='192.168.0.187')
+    app.run(debug=True ,host=IPAddr)
