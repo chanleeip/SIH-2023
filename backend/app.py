@@ -79,4 +79,5 @@ def viewpointlink():
     return response
 
 if __name__=="__main__":
-    app.run(debug=True ,host=IPAddr)
+    print(IPAddr)
+    app.run(debug=True ,host='192.168.0.138')

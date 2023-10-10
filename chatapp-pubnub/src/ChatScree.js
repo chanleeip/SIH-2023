@@ -17,7 +17,7 @@ const pubnub = new PubNub({
   }
   const user2 = {
     id: 'user_4F0E5969-7544-4102-A8AF-9A180D253A87',  //  REPLACE WITH YOUR ID
-    name: 'nithinn manickam kumar',
+    name: 'nithinn manickam ',
     profileUrl: 'https://randomuser.me/api/portraits/women/1.jpg'
   }
 export function ChatView () {
